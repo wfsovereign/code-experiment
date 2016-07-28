@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="jquery.js"></script>
+    <script type="text/javascript">
+        var leave = new Date(2016, 2, 5, 18, 11);
+        function format() {
+            setInterval(function () {
+                $('#time').html((leave.getTime() - new Date().getTime()) / 1000 + 's');
+            }, 1000);
+        }
+        format();
+    </script>
+</head>
+<body>
+<div>
+    <h1>倒计时</h1>
+    <span id="time">0s</span>
+</div>
+</body>
+</html>

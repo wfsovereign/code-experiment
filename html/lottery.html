@@ -1,0 +1,33 @@
+<html>
+<title>随机抽奖程序</title>
+<head><meta http-equiv=Content-Type content="text/html; charset=utf-8">
+</head>
+<body>
+<script type="text/javascript">
+
+var alldata = "ASP,PHP,AJAX,ASP.NET,CSHARP,VB.NET,DELPHI,VB,VC,JS" //抽奖数据，以逗号分隔 
+var alldataarr = alldata.split(",")
+var num = alldataarr.length-1
+var timer
+function change(){ document.getElementById("oknum").innerHTML = alldataarr[GetRnd(0,num)];
+}
+function start(){
+    clearInterval(timer);
+    timer = setInterval('change()',100); //随机数据变换速度，越小变换的越快
+}
+function ok(){
+    clearInterval(timer);
+    document.getElementById("showresult").value=document.getElementById("oknum").innerText;
+}
+function GetRnd(min,max){
+    return parseInt(Math.random()*(max-min+1));
+}
+
+// —></script>
+
+<div id="oknum" name="oknum" >请单击开始抽奖</div>
+<button onclick="start()" >开始抽奖(<U>S</U>)</button>
+<button onclick="ok()" >停止(<U>O</U>)</button>
+<input type="text" id="showresult" value="">
+</body>
+</html>

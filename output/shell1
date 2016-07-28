@@ -1,0 +1,17 @@
+//#!/usr/bin/env node
+//
+//{
+//	subscribe: 1,
+//	openid: 'ozemUxDjmu9OmPRoldl6onNBuly8',
+//	nickname: '李大榴',
+//	sex: 1,
+//	language: 'zh_CN',
+//	city: '',
+//	province: '',
+//	country: 'China',
+//	headimgurl: 'http://wx.qlogo.cn/mmopen/ajNVdqHZLLAmzhObDCJMJwtsx4oyG0MnnnxFYmeDVGFvx7S51pLkbCiaWV4HezA4NV6wRzhHxSItnUhH3sA7aTA/0',
+//	subscribe_time: 1453366986,
+//	unionid: 'oVTGxs-EvI26omIjG01V0IpWB9ew',
+//	remark: '',
+//	groupid: 0
+//}
