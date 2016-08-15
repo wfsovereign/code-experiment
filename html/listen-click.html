@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+    <meta charset="utf-8">
+    <title>点我</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>welcome to sugax</title>
+
+    <link rel="stylesheet" type="text/css" href="./css/normalize.css"/>
+    <link rel="stylesheet" type="text/css" href="./css/demo.css"/>
+
+    <!--必要样式-->
+    <link rel="stylesheet" type="text/css" href="./css/component.css"/>
+
+    <!--[if IE]>
+    <script src="js/html5.js"></script>
+    <![endif]-->
+</head>
+<body>
+<div class="container demo-1">
+    <div class="content">
+        <div id="large-header" class="large-header">
+            <canvas id="demo-canvas"></canvas>
+            <div class="main-title">
+                    <span>Number: </span><span class="target">0</span>
+                    <span class="thin">wfsovereign</span>
+            </div>
+        </div>
+    </div>
+</div><!-- /container -->
+<script src="./js/TweenLite.min.js"></script>
+<script src="./js/EasePack.min.js"></script>
+<script src="./js/rAF.js"></script>
+<script src="./js/demo-2.js"></script>
+<script src="./js/jquery.js"></script>
+<script type="text/javascript">
+    var n = 0;
+    $('body').on('keypress', function (e) {
+        console.log('this');
+        console.log(e)
+        if (e.charCode == 13 || e.charCode == 32) {
+            n++;
+            $('.target').text(n);
+        }
+    });
+
+</script>
+</body>
+</html>
