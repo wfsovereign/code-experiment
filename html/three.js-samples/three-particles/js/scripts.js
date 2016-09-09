@@ -3,7 +3,7 @@ var geometry, material, mesh;
 var canvas = document.getElementById('canvas');
 
 // particles set up
-var particleCount = 100;
+var particleCount = 1000;
 var particles = [];
 
 init();

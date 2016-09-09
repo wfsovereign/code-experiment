@@ -10,6 +10,14 @@ var particleMaterial = new THREE.MeshBasicMaterial({
   opacity: 0.5
 });
 var particles = [];
+var direction = [-1, 1];
+var directionAxis = ['x', 'y'], windowAxis = {x: 'innerWidth', y: 'innerHeight'};
+
+
+var changeDirection = () => {
+  var currentDirection = direction[Math.random() > 0.5 ? 0 : 1];
+  return currentDirection * Math.random();
+};
 
 init();
 animate();
@@ -41,13 +49,11 @@ function init() {
     particles[i].position.z = pz;
 
     particles[i].direction = {
+      x: changeDirection(),
+      y: changeDirection()
+    };
+    particles[i].velocity = {
       x: Math.random(),
-      y: Math.random()
-    };
-    if (i > 1000) particles[i].velocity = {
-      x: Math.random()
-    };
-    else particles[i].velocity = {
       y: Math.random()
     };
 
@@ -67,22 +73,31 @@ function animate() {
 
   for (var i = 0; i < particleCount; i++) {
 
-    if (i > 1000) {
-      particles[i].position.x -= particles[i].velocity.x * 3;
-      if (particles[i].position.x < -window.innerWidth ||
-          particles[i].position.x > window.innerWidth) {
-        particles[i].position.x = window.innerWidth;
-      }
-    } else {
-      particles[i].position.y -= particles[i].velocity.y * 3;
-      if (particles[i].position.y < -window.innerHeight ||
-          particles[i].position.y > window.innerHeight) {
-        particles[i].position.y = window.innerHeight;
-      }
-    }
+    // if (i > 1000) {
+    //   particles[i].position.x -= particles[i].velocity.x * 3;
+    //   if (particles[i].position.x < -window.innerWidth ||
+    //       particles[i].position.x > window.innerWidth) {
+    //     particles[i].position.x = window.innerWidth;
+    //   }
+    // } else {
+    //   particles[i].position.y -= particles[i].velocity.y * 3;
+    //   if (particles[i].position.y < -window.innerHeight ||
+    //       particles[i].position.y > window.innerHeight) {
+    //     particles[i].position.y = window.innerHeight;
+    //   }
+    // }
 
+    updatePosition(particles[i])
   }
 
   renderer.render(scene, camera);
 
+}
+
+function updatePosition(particle) {
+  var currentDirectionAxis = directionAxis[1], currentWindowAxis = windowAxis[currentDirectionAxis];
+  particle.position[currentDirectionAxis] -= particle.velocity[currentDirectionAxis] * 3;
+  if (particle.position[currentDirectionAxis] < -window[currentWindowAxis] ||
+      particle.position[currentDirectionAxis] > window[currentWindowAxis])
+    particle.position[currentDirectionAxis] = window[currentWindowAxis];
 }
